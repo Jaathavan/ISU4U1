@@ -1,6 +1,5 @@
 /*
  * Jaathavan Ranjanathan
- * M.Karashinska
  * ISU4U1
  */
 
