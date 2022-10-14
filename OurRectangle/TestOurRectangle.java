@@ -36,8 +36,8 @@ public class TestOurRectangle {
         System.out.println("Contains: " + n.contains(m));
 
         //permi checks
-        OurRectangle a = new OurRectangle(1, 1, 3, 3);
-        OurRectangle b = new OurRectangle(2, 2, 4, 4);
+        OurRectangle a = new OurRectangle(1, 3, 3, 3);
+        OurRectangle b = new OurRectangle(2, 5, 4, 4);
         int permu = OurRectangle.totalPerimeter(a, b);
         System.out.println("permu: " + permu);
     }
