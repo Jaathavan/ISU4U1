@@ -1,6 +1,7 @@
 /*
  * Jaathavan Ranjanathan
  * ISU4U1
+ * Make modifications to ensure that largest is to thre right
  */
 
 public class OurRectangle {
@@ -12,25 +13,24 @@ public class OurRectangle {
 
     //constructor
     public OurRectangle (int xx, int yy, int w, int h) {
-        //set initial values to 0
-        x = 0; 
-        y = 0;
-        width = 0;
-        height = 0;
+        //set initial values
+        x = xx; 
+        y = yy;
+        width = w;
+        height = h;
 
-        //sets correct value if !negative
-        if (xx >= 0) {
-            x = xx;
+        //sets negative if 0
+        if (xx < 0) {
+            x = 0;
         }
-
-        if (yy >= 0) {
-            y = yy;
+        if (yy < 0) {
+            y = 0;
         }
-        if (w >= 0) {
-            width = w;
+        if (w < 0) {
+            width = 0;
         }
-        if (h >= 0) {
-            height = h;
+        if (h < 0) {
+            height = 0;
         }
     }
 
@@ -111,7 +111,7 @@ public class OurRectangle {
         
         //create an array that holds the (X,Y) coordinates of bottom left and top right of both rectangles
         //l=bottom left, r=top right
-        int[] l1 = { rec1.getX(), rec1.getY() };
+        int[] l1 = { rec2.getX(), rec2.getY() };
         int[] r1 = { (rec1.getX()+rec1.getWidth()), (rec1.getY()+rec1.getHeight()) };
         int[] l2 = { rec2.getX(), rec2.getY() };
         int[] r2 = { (rec2.getX()+rec2.getWidth()), (rec2.getY()+rec2.getHeight()) };
@@ -120,26 +120,26 @@ public class OurRectangle {
         //when you take coordinate closest to the left/bottom from the right/top and
         //subtract it by the coordinate closest to the right/top from the left/bottom you can get the dimensions
         //if the value is - then the rectangles do not intersection
-        int width = Math.min(r1[0], r2[0]) - Math.max(l1[0], l2[0]);
-        int height = Math.min(r1[1], r2[1]) - Math.max(l1[1], l2[1]);
+        int w = Math.min(r1[0], r2[0]) - Math.max(l1[0], l2[0]);
+        int h = Math.min(r1[1], r2[1]) - Math.max(l1[1], l2[1]);
 
         //set new rectangle width if +
-        if (width > 0) {
-            inter.width = width;
+        if (w > 0) {
+            inter.width = w;
         }
 
         //set new rectangle height if +
-        if (height > 0) {
-            inter.height = height;
+        if (h > 0) {
+            inter.height = h;
         }
 
         //sets (x,y) if intersection is true
-        if (width > 0 || height > 0) {
+        if (w > 0 || h > 0) {
             //gets the bottom left corner coordinates
             //subtract the leftmost x coordinate at the top right by the width to get the coordinate
-            inter.x = Math.min(r1[0], r2[0]) - width;
+            inter.x = Math.min(r1[0], r2[0]) - w;
             //subtract the leftmost y coordinate at the top right by the width to get the coordinate
-            inter.y = Math.min(r1[1], r2[1]) - height;
+            inter.y = Math.min(r1[1], r2[1]) - h;
         }
 
         //return new rectangle
@@ -159,8 +159,8 @@ public class OurRectangle {
         //form a larger rectangle based on the longest width and height of the shape
 
         //finds width/height by finding the largest possible length & width between the 2 corners
-        int width = Math.max(r1[0], r2[0]) - Math.min(l1[0], l2[0]);
-        int height = Math.max(r1[0], r2[0]) - Math.min(l1[0], l2[0]);
+        int w = Math.max(r1[0], r2[0]) - Math.min(l1[0], l2[0]);
+        int h = Math.max(r1[1], r2[1]) - Math.min(l1[1], l2[1]);
         
         //uses intersection height/width formula to find height/width
         int doesIntersectW = Math.min(r1[0], r2[0]) - Math.max(l1[0], l2[0]);
@@ -168,7 +168,7 @@ public class OurRectangle {
         
         //if height and weight are >=0 then return the perimeter using new length and width
         if (doesIntersectW >= 0 && doesIntersectH >= 0) {
-          return 2*(width+height);
+          return 2*(w+h);
         }
         
         //otherwise return sum of both perimeters
