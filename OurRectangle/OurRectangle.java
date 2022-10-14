@@ -134,7 +134,7 @@ public class OurRectangle {
         }
 
         //sets (x,y) if intersection is true
-        if (w >= 0 && h >= 0) {
+        if (w > 0 || h > 0) {
             //gets the bottom left corner coordinates
             //subtract the leftmost x coordinate at the top right by the width to get the coordinate
             inter.x = Math.min(r1[0], r2[0]) - w;
