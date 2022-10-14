@@ -111,7 +111,7 @@ public class OurRectangle {
         
         //create an array that holds the (X,Y) coordinates of bottom left and top right of both rectangles
         //l=bottom left, r=top right
-        int[] l1 = { rec2.getX(), rec2.getY() };
+        int[] l1 = { rec1.getX(), rec1.getY() };
         int[] r1 = { (rec1.getX()+rec1.getWidth()), (rec1.getY()+rec1.getHeight()) };
         int[] l2 = { rec2.getX(), rec2.getY() };
         int[] r2 = { (rec2.getX()+rec2.getWidth()), (rec2.getY()+rec2.getHeight()) };
