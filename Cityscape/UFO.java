@@ -1,5 +1,4 @@
 import java.awt.*;
-import javax.swing.*;
 
 public class UFO {
 	private int x = 20;
