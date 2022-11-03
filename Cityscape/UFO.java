@@ -28,5 +28,7 @@ public class UFO {
 	public void paint(Graphics2D g2d) {
 		g2d.setColor(Color.GREEN);
 		g2d.fillOval(x, y, 100, 50);
+		g2d.setColor(Color.BLUE);
+		g2d.fillOval(x+25, y-10, 50, 40);
 	}
 }
