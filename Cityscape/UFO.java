@@ -5,9 +5,9 @@ public class UFO {
 	private int y = 20;
 	private int xa = 1; // Horizontal speed
 	private int ya = 1; // Vertical speed
-	private CityscapeExample ua;
+	private Cityscape ua;
 
-	public UFO(CityscapeExample ua) {
+	public UFO(Cityscape ua) {
 		this.ua = ua;
 	}
 
