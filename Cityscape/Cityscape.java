@@ -5,7 +5,6 @@ public class Cityscape extends JPanel {
 
 	//private Cityscape cs = new Cityscape();
 	private Building b = new Building(5, Math.round(640/3), 1020/5, Math.round(640/3)*2);
-	private Building b = new Building(5, Math.round(640/3), (1020/5), Math.round(640*2/3));
 	private Building b1 = new Building(15 + b.getW(), Math.round(640/3), Math.round(1020/8), Math.round(640*2/3));
 	private Building b2 = new Building(15 + b1.getX() + b1.getW(), Math.round(640/3), Math.round(1020/4), Math.round(640*2/3));
 	private Building b3 = new Building(15 + b2.getX() + b2.getW(), Math.round(640/3), Math.round(1020/10), Math.round(640*2/3));
