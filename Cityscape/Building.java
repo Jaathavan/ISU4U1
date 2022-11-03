@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.Random;
 
 public class Building {
 	private int x,y,w,h;
@@ -24,6 +25,8 @@ public class Building {
 		return h;
 	}
 	
+	Random rand = new Random();
+
 	public void paint(Graphics2D g) {
 		//building
 		g.setColor(Color.GRAY);
@@ -34,11 +37,11 @@ public class Building {
 		
 		for (int i=x+10; i+30 < w+getX(); i+=40) {
 			for (int j=y; j+30 < h+getY()*2/3; j+=40) {
-				int n = (int) (Math.random()*2);
+				int n = rand.nextInt(2);
 				if (n == 1) g.setColor(Color.YELLOW);
 				g.fillRect(i, j + 10, 30, 30);
 				g.setColor(Color.BLACK);
-				int x = (int) (Math.random()*2);
+				int x = rand.nextInt(2);
 				if (x == 1) g.setColor(Color.YELLOW);
 				g.fillRect(i, j + 10, 30, 30);
 			}
