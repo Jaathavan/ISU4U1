@@ -7,7 +7,7 @@ public class UFO {
 	private int ya = 1; // Vertical speed
 	private Cityscape ua;
 	
-	private static final int DIAMETER = 100;
+	private static final int DIAMETER = 50;
 
 	public UFO(Cityscape ua, int x, int y, int xa, int ya) {
 		this.ua = ua;
@@ -19,11 +19,9 @@ public class UFO {
 
 	public void move() {
 		if ((x + xa < 0)  || (x + xa > ua.getWidth() - DIAMETER)) // If the ball exceeds the left
-			xa *= 1;
-		if ((y + ya < 0) || (y + ya > ua.getHeight() - DIAMETER)) // If the ball exceeds the top
-			ya = 1;
-		if (y + ya > ua.getHeight() - 50) // If the ball exceeds the bottom
-			ya *= -1; 
+			xa *= -1;
+		if ((y + ya < 0) || (y + ya > ua.getHeight() - DIAMETER - Math.round(640/3)*2)) // If the ball exceeds the top
+			ya *= -1;
 		
 		x += xa;
 		y += ya;
@@ -47,7 +45,7 @@ public class UFO {
 
 	public void paint(Graphics2D g2d) {
 		g2d.setColor(Color.GREEN);
-		g2d.fillOval(x, y, DIAMETER, DIAMETER-50);
+		g2d.fillOval(x, y, DIAMETER+50, DIAMETER);
 		g2d.setColor(Color.BLUE);
 		g2d.fillOval(x+20, y-10, 60, 40);
 		g2d.fillOval(x+10, y+20, 10, 10);

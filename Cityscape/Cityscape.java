@@ -11,7 +11,7 @@ public class Cityscape extends JPanel {
 	
 	UFO[] list = new UFO[4];
 
-	public CityScape() {
+	public Cityscape() {
 		//Randomly create each Ball in the list
 		for (int i = 0; i< list.length; i++)
 			list[i] = new UFO(this, i*50, i*50,
