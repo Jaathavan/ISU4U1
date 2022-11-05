@@ -6,6 +6,8 @@ import java.io.*;
 public class Car {
     private int x = 0;
     private int y = 425;
+    private int xa = 1; // Horizontal speed
+	private int ya = 1; // Vertical speed
     private BufferedImage img = null;
     
     public Car() {
@@ -18,10 +20,18 @@ public class Car {
     }
 
     public void move() {
-        x++;
+        if ((x + xa < 0)  || (x + xa > 1020)) // If the ball exceeds the left
+			xa *= -1;
+		
+		x += xa;
     }
 
     public void paint(Graphics2D g) {
-        g.drawImage(img, x, y, null);
+        if (xa > 0) {
+            g.drawImage(img, x, y, null);
+        }
+        if (xa < 0) {
+            g.drawImage(img, x + 200, y, -200, 186, null);
+        }
     }
 }
