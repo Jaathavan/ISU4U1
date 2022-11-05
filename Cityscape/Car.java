@@ -1,18 +1,16 @@
 import java.awt.*;
-import javax.swing.*;
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 import javax.imageio.*;
 import java.io.*;
 
 public class Car {
     private int x = 0;
-    private int y = 100;
+    private int y = 425;
     private BufferedImage img = null;
     
     public Car() {
         try {
-            img = ImageIO.read(new File("car.webp"));
+            img = ImageIO.read(new File("car.gif"));
         } catch (IOException e)
         {
             System.out.println("No Image");
