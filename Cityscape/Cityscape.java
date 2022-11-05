@@ -9,6 +9,9 @@ public class Cityscape extends JPanel {
 	private Building b4 = new Building(15 + b3.getX() + b3.getW(), Math.round(640/3), Math.round(1020/7), Math.round(640*2/3));
 	private Building b5 = new Building(15 + b4.getX() + b4.getW(), Math.round(640/3), Math.round(1020/12), Math.round(640*2/3));
 	
+	private Car c = new Car();
+
+
 	UFO[] list = new UFO[4];
 
 	public Cityscape() {
@@ -20,6 +23,7 @@ public class Cityscape extends JPanel {
 	}
 
 	public void move() {
+		c.move();
 		// Check for collisions between each of the balls
 		for (int i = 0; i < list.length; i++)
 			for (int j = i + 1; j < list.length; j++)
@@ -46,6 +50,8 @@ public class Cityscape extends JPanel {
 		b4.paint(g2d);
 		b5.paint(g2d);
 		
+		c.paint(g2d);
+
 		for (UFO b : list)
 			b.paint(g2d);
 	}
