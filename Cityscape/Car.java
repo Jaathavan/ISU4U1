@@ -7,6 +7,7 @@ public class Car extends Canvas {
     private int x = 0;
     private int y = 425;
     private int xa = 2; // Horizontal speed
+
     //private BufferedImage img = null;
     
     // public Car() {
@@ -18,11 +19,19 @@ public class Car extends Canvas {
     //     }
     // }
 
-    public void move() {
-        if ((x + xa < 0-200)  || (x + xa > 1020)) // If the ball exceeds the left
+    public void move(int ux, int uy, boolean space) {
+        if (space==true && x >= ux-50 && x <= ux+150 && y >= uy ) {
+            y--;
+            if (y == uy) xa=0;
+        }
+        else if (space == false && y < 420) y++;
+        
+        if ((x + xa < 0-200)  || (x + xa > 1020)) // If the car exceeds the left
 			xa *= -1;
-		
-		x += xa;
+		    
+        
+        x += xa;
+        
     }
 
     public void paint(Graphics2D g) {

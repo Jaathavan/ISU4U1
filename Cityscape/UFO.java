@@ -10,7 +10,7 @@ public class UFO {
 	
 	private static final int DIAMETER = 50;
 
-	private boolean right = false, left = false;
+	private boolean right = false, left = false, space = false;
 	private Boolean up = false, down = false;
 
 	public UFO(Cityscape ua, int x, int y, int xa, int ya) {
@@ -21,6 +21,16 @@ public class UFO {
 		this.ya = ya;
 	}
 
+	public int getX() {
+		return x;
+	}
+	public int getY() {
+		return y;
+	}
+	public boolean getSpace() {
+		return space;
+	}
+	
 	public void keyPressed(KeyEvent e) {
 		// This checks to see which key was pressed, and then sets the appropriate
 		// Boolean to true
@@ -35,6 +45,9 @@ public class UFO {
 		}
 		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
 			down = true;
+		}
+		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+			space = true;
 		}
 	}
 
@@ -59,6 +72,10 @@ public class UFO {
 			down = false;
 			ya = 0;
 		}
+
+		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+			space = false;
+		}
 	}
 
 
@@ -75,17 +92,18 @@ public class UFO {
 	public void moveU() {
 		// Base your acceleration on the Booleans set by your keyPressed method
 		if (right) {
-			xa = 1;
+			xa = 2;
 		}
 		if (left) {
-			xa = -1;
+			xa = -2;
 		}
 		if (down) {
-			ya = 1;
+			ya = 2;
 		}
 		if (up) {
-			ya = -1;
+			ya = -2;
 		}
+
 		x += xa;
 		y += ya;
 	}
@@ -106,9 +124,10 @@ public class UFO {
 	}
 
 	public void paint(Graphics2D g2d) {
-		//modify to steal
-		// g2d.setColor(new Color(255, 255, 0, 50));
-		// g2d.fillPolygon(new int[] {x+45, x, x+100}, new int[] {y+35, y+80, y+80}, 3);
+		if (space == true) {
+			g2d.setColor(new Color(255, 255, 0, 50));
+			g2d.fillPolygon(new int[] {x+50, x-75, x+175}, new int[] {y+35, 640, 640}, 3);
+		}
 		g2d.setColor(Color.GREEN);
 		g2d.fillOval(x, y, DIAMETER+50, DIAMETER);
 		g2d.setColor(Color.BLUE);
