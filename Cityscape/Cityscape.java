@@ -1,5 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
+import java.awt.event.*;
 
 public class Cityscape extends JPanel {
 	public int[] setLights(int w, int h) {
@@ -19,25 +20,50 @@ public class Cityscape extends JPanel {
 	private Car c = new Car();
 
 
-	UFO[] list = new UFO[4];
+	UFO[] list = new UFO[3];
+
+	private UFO u = new UFO(null, 0 , 0, 0, 0);
 
 	public Cityscape() {
-		//Randomly create each Ball in the list
+		//Randomly create each UFO in the list
 		for (int i = 0; i< list.length; i++)
 			list[i] = new UFO(this, i*50, i*50,
 					(int)(10 * Math.random() - 5),
 					(int)(10 * Math.random() - 5));
+
+		addKeyListener(new KeyListener() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// Passes the KeyEvent e to the ball instance
+				u.keyReleased(e);
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// Passes the KeyEvent e to the ball instance
+				u.keyPressed(e);
+			}
+		});
+
+		setFocusable(true);
 	}
 
 	public void move() {
 		c.move();
-		// Check for collisions between each of the balls
+		// Check for collisions between each of the UFO
 		for (int i = 0; i < list.length; i++)
 			for (int j = i + 1; j < list.length; j++)
 				list[i].collision(list[j]);
-		// Move each Ball in the list
+		
+				// Move each UFO in the list
 		for (UFO b : list)
 			b.move();
+
+		u.moveU();
 	}
 
 	@Override
@@ -61,6 +87,8 @@ public class Cityscape extends JPanel {
 
 		for (UFO b : list)
 			b.paint(g2d);
+		
+		u.paint(g2d);
 	}
 
 	public static void main(String[] args) throws InterruptedException {
