@@ -1,7 +1,7 @@
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import javax.imageio.*;
-import java.io.*;
+// import java.awt.image.BufferedImage;
+// import javax.imageio.*;
+// import java.io.*;
 
 public class Car extends Canvas {
     private int x = 0;

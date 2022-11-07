@@ -44,6 +44,8 @@ public class UFO {
 	}
 
 	public void paint(Graphics2D g2d) {
+		g2d.setColor(new Color(255, 255, 0, 50));
+		g2d.fillPolygon(new int[] {x+45, x, x+100}, new int[] {y+35, y+80, y+80}, 3);
 		g2d.setColor(Color.GREEN);
 		g2d.fillOval(x, y, DIAMETER+50, DIAMETER);
 		g2d.setColor(Color.BLUE);
