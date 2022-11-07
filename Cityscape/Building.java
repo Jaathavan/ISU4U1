@@ -37,7 +37,7 @@ public class Building {
 		//g.fillRect(x+10, y + 10, 30, 30);
 		
 		for (int i=x+10; i+30 < w+getX(); i+=40) {
-			for (int j=y; j+30 < h+getY()*2/3; j+=40) {
+			for (int j=y; j+30 < h+getY()*5/6; j+=40) {
 				int n = lights[a];
 				if (n == 1) g.setColor(Color.YELLOW);
 				g.fillRect(i, j + 10, 30, 30);
