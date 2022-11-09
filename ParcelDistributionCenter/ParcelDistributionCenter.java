@@ -4,11 +4,10 @@ import javax.swing.*;
 public class ParcelDistributionCenter extends JPanel {
     private int x= 100;
     private int y = 50;
-    private int l = 50;
+    private int l = 100;
     private int w = 100;
-    private int h = 10;
-    private int wx = w*(int)Math.sin(Math.toRadians(45));
-    private int wy = w*(int)Math.cos(Math.toRadians(45));
+    private int h = 100;
+    private int wxy = w*(int)Math.sqrt(2)/2;
 
     @Override
     public void paint(Graphics g) {
@@ -21,7 +20,7 @@ public class ParcelDistributionCenter extends JPanel {
 		g.fillRect(0, 0, 1020, 640);
 
         g.setColor(Color.ORANGE);
-        g.drawPolygon(new int[] {x, x+l, x+l+wx, x+l+wx, x+wx, x }, new int[] {y, y, y+wy, y+wy+h, y+wy+h, y+h}, 6);
+        g.drawPolygon(new int[] {x, x+l, x+l+wxy, x+l+wxy, x+wxy, x}, new int[] {y, y, y+wxy, y+wxy+h, y+wxy+h, y+h}, 6);
     }
 
     public static void main(String[] args) throws InterruptedException {
