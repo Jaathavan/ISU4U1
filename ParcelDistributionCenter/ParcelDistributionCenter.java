@@ -24,14 +24,15 @@ public class ParcelDistributionCenter extends JPanel {
 	
     @Override
     public void paint(Graphics g) {
-    	super.paint(g);
+    		super.paint(g);
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		
 		//bg colour of gray
 		g.setColor(Color.DARK_GRAY);
 		g.fillRect(0, 0, 1020, 640);
-        p.paint(g2d);
+        	p.paint(g2d);
+	    	p1.paint(g2d);
 
     }
 
