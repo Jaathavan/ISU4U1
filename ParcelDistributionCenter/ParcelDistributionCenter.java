@@ -15,7 +15,7 @@ public class ParcelDistributionCenter extends JPanel {
     }
     
 	
-	private Parcel p = new Parcel(randLH(), randLH(), randW(), randC());
+	private Parcel p = new Parcel(randLH(), randLH(), randW(), randC(), 0);
 	
 	public void move() {
 		p.move();
