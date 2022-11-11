@@ -4,12 +4,12 @@ public class Parcel {
     private int l,h, w, c;
     private int x,y,wxy;
 
-    public Parcel (int l, int h, int w, int c) {
+    public Parcel (int l, int h, int w, int c, int x) {
         this.l = l;
         this.h = h;
         this.w = w;
         this.c = c;
-        x = 0;
+        this.x = x;
         y= 300;
         wxy = this.w*(int)Math.sqrt(2)/2;
     }
