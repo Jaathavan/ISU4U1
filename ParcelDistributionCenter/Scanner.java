@@ -8,22 +8,14 @@ public class Scanner {
 		this.scan = false;
 	}
 
-	private boolean getScan() {
+	public boolean getScan() {
 		return scan;
 	}
 
-	private void setScan(boolean scan) {
+	public void setScan(boolean scan) {
 		this.scan = scan;
 	}
 	
-	public void move(int x) {
-		if (x >= 200 && x <= 300) {
-			setScan(true);
-		}
-		else {
-			setScan(false);
-		}
-	}
 
 	public void paint(Graphics g) {
 		g.setColor(Color.GRAY);

@@ -15,8 +15,9 @@ public class ParcelDistributionCenter extends JPanel {
 	}
 
 	Parcel[] list = new Parcel[20];
-
+	private int i = 0;
 	private Scanner s = new Scanner();
+
 
 	public ParcelDistributionCenter() {
 		for (int i = 0; i < list.length; i++) {
@@ -32,6 +33,17 @@ public class ParcelDistributionCenter extends JPanel {
 	public void move() {
 		for (Parcel p : list) {
 			p.move();
+		}
+
+		if (list[i].getX() > 300 && i < 20) {
+			i++;
+		}
+
+		if (list[i].getX() >= 200 && list[i].getX() <= 300) {
+			s.setScan(true);
+		}
+		else {
+			s.setScan(false);
 		}
 	}
 
