@@ -65,6 +65,7 @@ public class Scanner {
 		//scanner box
 		g.setColor(Color.GRAY);
 		g.fillRect(200, 300-20, 100, 100);
+		g.fillRect(300, 300-20-200, 100, 500);
 
 		//scanner light
 		if (getScan() == true) {
@@ -89,7 +90,7 @@ public class Scanner {
 			g.setColor(Color.YELLOW);
 			setImg(unknown);
 		}
-		if (getColour() == 4) {
+		if (getColour() == 3) {
 			g.setColor(Color.GRAY);
 		}
 

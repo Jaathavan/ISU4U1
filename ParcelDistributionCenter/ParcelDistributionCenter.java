@@ -33,13 +33,17 @@ public class ParcelDistributionCenter extends JPanel {
 	public void move() {
 		for (Parcel p : list) {
 			p.move();
+			if (p.getX() >= 300) {
+				if (p.getC() == 0) p.setY(100);
+				if (p.getC() == 2) p.setY(500);
+			}
 		}
 
-		if (list[i].getX() > 300 && i < 19) {
+		if (list[i].getX() > 400 && i < 19) {
 			i++;
 		}
 
-		if (list[i].getX() >= 200 && list[i].getX() <= 300) {
+		if (list[i].getX() >= 200 && list[i].getX() <= 400) {
 			s.setScan(true);
 			s.setColour(list[i].getC());
 		}

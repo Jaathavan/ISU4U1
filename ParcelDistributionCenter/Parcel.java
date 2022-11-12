@@ -42,6 +42,10 @@ public class Parcel {
         return wxy;
     }
 
+    public void setY(int y) {
+        this.y = y;
+    }
+
     public void move() {
         x++;
     }
