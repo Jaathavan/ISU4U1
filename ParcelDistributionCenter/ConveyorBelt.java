@@ -11,7 +11,7 @@ public class ConveyorBelt {
         this.l = l;
         this.h = 12;
         this.xx = x;
-        this.a = 30;
+        this.a = 1;
     }
 
     public boolean getOn() {
@@ -76,8 +76,10 @@ public class ConveyorBelt {
             g.fillOval(i, getY()+3, 10, 10);
             g.setColor(Color.BLACK);
             g.drawOval(i, getY()+3, 10, 10);
+            g.setColor(Color.GRAY.darker().darker().darker().darker());
+            g.fillOval(i+3, getY()+6, 5, 5);
             g.setColor(Color.GRAY.darker());
-            g.fillArc(i+3, getY()+6, 5, 5, 180, getA());
+            g.fillArc(i+3, getY()+6, 5, 5, -getA(), getA());
             g.setColor(Color.BLACK);
             //g.drawLine(i+5, getY()+8, i, getY()+8);
         }
