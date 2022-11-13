@@ -17,7 +17,7 @@ public class ParcelDistributionCenter extends JPanel {
 	Parcel[] list = new Parcel[20];
 	private int i = 0;
 	private Scanner s = new Scanner();
-
+	private ConveyorBelt cb1 = new ConveyorBelt(-5, 370, 295);
 
 	public ParcelDistributionCenter() {
 		for (int i = 0; i < list.length; i++) {
@@ -69,11 +69,14 @@ public class ParcelDistributionCenter extends JPanel {
 		g.fillRect(350, 300-20-200, 100, 500);
 
 		g.setColor(Color.GRAY.darker().darker().darker().darker().darker().darker());
-		g.fillRect(250+10, 300-20+10, 30, 80);
+		g.fillRect(250+10, 300-20+10, 30, 83);
 
 		g.setColor(Color.BLACK);
 		g.drawPolygon(new int[] {250, 350, 350, 500, 500, 350, 350, 250}, new int[] {280, 280, 80, 80, 580, 580, 380, 380}, 8);
 		
+		cb1.paint(g2d);
+
+		g.fillPolygon(new int[] {260, 290, 290}, new int[] {320, 320, 373}, 3);
 		// parcels
 		for (Parcel p : list) {
 			p.paint(g2d);
