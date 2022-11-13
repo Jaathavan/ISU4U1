@@ -2,15 +2,16 @@ import java.awt.*;
 
 public class ConveyorBelt {
     private boolean on;
-    private int x,y,l,h, xx;
+    private int x,y,l,h, xx, a;
 
     public ConveyorBelt(int x, int y, int l) {
-        this.on = false;
+        this.on = true;
         this.x = x;
         this.y = y;
         this.l = l;
         this.h = 12;
         this.xx = x;
+        this.a = 30;
     }
 
     public boolean getOn() {
@@ -37,8 +38,16 @@ public class ConveyorBelt {
         return xx;
     }
 
+    public int getA() {
+        return a;
+    }
+
     public void setXX(int xx) {
         this.xx = xx;
+    }
+
+    public void setA(int a) {
+        this.a = a;
     }
 
     public void setOn(boolean on) {
@@ -49,7 +58,11 @@ public class ConveyorBelt {
         if (getXX() == getX()+20) {
             setXX(getXX() - 20);
         }
+        if (getA() == 360) {
+            setA(1);
+        }
         setXX(getXX() + 1);
+        setA(getA() + 1);
     }
 
     public void paint(Graphics2D g) {
@@ -63,8 +76,12 @@ public class ConveyorBelt {
             g.fillOval(i, getY()+3, 10, 10);
             g.setColor(Color.BLACK);
             g.drawOval(i, getY()+3, 10, 10);
-            g.drawLine(i, getY()+10, i+5, getY()+8);
+            g.setColor(Color.GRAY.darker());
+            g.fillArc(i+3, getY()+6, 5, 5, 180, getA());
+            g.setColor(Color.BLACK);
+            //g.drawLine(i+5, getY()+8, i, getY()+8);
         }
+
         for (int i=getXX()-15; i < getXX()+getL(); i+=15) {
             g.drawLine(i, getY()-50, i+20, getY()+2);
         }
