@@ -18,6 +18,9 @@ public class ParcelDistributionCenter extends JPanel {
 	private int i = 0;
 	private Scanner s = new Scanner();
 	private ConveyorBelt cb1 = new ConveyorBelt(-5, 370, 295);
+	private ConveyorBelt cb2 = new ConveyorBelt(500-5, 167, 530);
+	private ConveyorBelt cb3 = new ConveyorBelt(500-5, 370, 530);
+	private ConveyorBelt cb4 = new ConveyorBelt(500-5, 567, 530);
 
 	public ParcelDistributionCenter() {
 		for (int i = 0; i < list.length; i++) {
@@ -50,6 +53,10 @@ public class ParcelDistributionCenter extends JPanel {
 		else {
 			s.setScan(false);
 		}
+		cb1.move();
+		cb2.move();
+		cb3.move();
+		cb4.move();
 	}
 
 	@Override
@@ -75,6 +82,9 @@ public class ParcelDistributionCenter extends JPanel {
 		g.drawPolygon(new int[] {250, 350, 350, 500, 500, 350, 350, 250}, new int[] {280, 280, 80, 80, 580, 580, 380, 380}, 8);
 		
 		cb1.paint(g2d);
+		cb2.paint(g2d);
+		cb3.paint(g2d);
+		cb4.paint(g2d);
 
 		g.fillPolygon(new int[] {260, 290, 290}, new int[] {320, 320, 373}, 3);
 		// parcels
