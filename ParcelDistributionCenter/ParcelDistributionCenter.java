@@ -33,17 +33,17 @@ public class ParcelDistributionCenter extends JPanel {
 	public void move() {
 		for (Parcel p : list) {
 			p.move();
-			if (p.getX() >= 300) {
+			if (p.getX() >= 400) {
 				if (p.getC() == 0) p.setY(100);
 				if (p.getC() == 2) p.setY(500);
 			}
 		}
 
-		if (list[i].getX() > 400 && i < 19) {
+		if (list[i].getX() > 500 && i < 19) {
 			i++;
 		}
 
-		if (list[i].getX() >= 200 && list[i].getX() <= 400) {
+		if (list[i].getX() >= 300 && list[i].getX() < 500) {
 			s.setScan(true);
 			s.setColour(list[i].getC());
 		}
@@ -63,13 +63,29 @@ public class ParcelDistributionCenter extends JPanel {
 		g.setColor(Color.DARK_GRAY);
 		g.fillRect(0, 0, 1020, 640);
 
+		//Overlay of 3d scanner
+		g.setColor(Color.GRAY.darker());
+		g.fillRect(250, 300-20, 100, 100);
+		g.fillRect(350, 300-20-200, 100, 500);
+
+		g.setColor(Color.GRAY.darker().darker().darker().darker().darker().darker());
+		g.fillRect(250+10, 300-20+10, 30, 80);
+
+		g.setColor(Color.BLACK);
+		g.drawPolygon(new int[] {250, 350, 350, 500, 500, 350, 350, 250}, new int[] {280, 280, 80, 80, 580, 580, 380, 380}, 8);
+		
 		// parcels
 		for (Parcel p : list) {
 			p.paint(g2d);
 		}
-		
+
+		//overlay to top
+		g.setColor(Color.GRAY.darker());
+		g.fillRect(250+10+30, 300-20+10, 10, 80);
 		//scanner
 		s.paint(g2d);
+		g.setColor(Color.BLACK);
+		g.drawPolygon(new int[] {300, 400, 400, 500, 500, 400, 400, 300}, new int[] {280, 280, 80, 80, 580, 580, 380, 380}, 8);
 	}
 
 	public static void main(String[] args) throws InterruptedException {

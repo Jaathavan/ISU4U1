@@ -64,8 +64,8 @@ public class Scanner {
 	public void paint(Graphics g) {
 		//scanner box
 		g.setColor(Color.GRAY);
-		g.fillRect(200, 300-20, 100, 100);
-		g.fillRect(300, 300-20-200, 100, 500);
+		g.fillRect(300, 300-20, 100, 100);
+		g.fillRect(400, 300-20-200, 100, 500);
 
 		//scanner light
 		if (getScan() == true) {
@@ -73,9 +73,9 @@ public class Scanner {
 		} else {
 			g.setColor(Color.BLACK);
 		}
-		g.fillOval(200+10, 300-20+10, 10, 10);
+		g.fillOval(300+10, 300-20+10, 10, 10);
 		g.setColor(Color.BLACK);
-		g.drawOval(200+10, 300-20+10, 10, 10);
+		g.drawOval(300+10, 300-20+10, 10, 10);
 
 		//scanner image
 		if (getColour() == 0) {
@@ -94,9 +94,9 @@ public class Scanner {
 			g.setColor(Color.GRAY);
 		}
 
-		g.fillRoundRect(90, 290+20+100+50, 120, 120, 30, 30);
-		g.drawImage(img, 100, 300+20+100+50, null);
+		g.fillRoundRect(20, 290+20+100+50, 120, 120, 30, 30);
+		g.drawImage(img, 30, 300+20+100+50, null);
 		g.setColor(Color.BLACK);
-		g.drawRoundRect(90, 290+20+100+50, 120, 120, 30, 30);
+		g.drawRoundRect(20, 290+20+100+50, 120, 120, 30, 30);
 	}
 }
