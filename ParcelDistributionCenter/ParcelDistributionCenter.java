@@ -1,5 +1,6 @@
 import java.awt.*;
 import javax.swing.*;
+import java.awt.event.*;
 
 public class ParcelDistributionCenter extends JPanel {
 	public int randLH() {
@@ -21,7 +22,8 @@ public class ParcelDistributionCenter extends JPanel {
 	private ConveyorBelt cb2 = new ConveyorBelt(500-5, 167, 530);
 	private ConveyorBelt cb3 = new ConveyorBelt(500-5, 370, 530);
 	private ConveyorBelt cb4 = new ConveyorBelt(500-5, 567, 530);
-
+	private Switch sw = new Switch();
+	
 	public ParcelDistributionCenter() {
 		for (int i = 0; i < list.length; i++) {
 			if (i==0) {
@@ -31,11 +33,33 @@ public class ParcelDistributionCenter extends JPanel {
 				list[i] = new Parcel(randLH(), randLH(), randW(), randC(), list[i-1].getX() - 200 - (list[i-1].getL() + list[i-1].getWXY()));
 			}
 		}
+		
+		addKeyListener(new KeyListener() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+			}
+			
+			@Override
+			public void keyPressed(KeyEvent e) {
+				sw.keyPressed(e);
+			}
+		});
+
+		setFocusable(true);
 	}
 
 	public void move() {
 		for (Parcel p : list) {
-			p.move();
+			if(sw.getOn() == true || p.getX() > 500) {
+				p.move();
+				cb2.move();
+				cb3.move();
+				cb4.move();
+			}
 			if (p.getX() >= 400) {
 				if (p.getC() == 0) p.setY(100);
 				if (p.getC() == 2) p.setY(500);
@@ -53,10 +77,17 @@ public class ParcelDistributionCenter extends JPanel {
 		else {
 			s.setScan(false);
 		}
-		cb1.move();
-		cb2.move();
-		cb3.move();
-		cb4.move();
+		
+		if(sw.getOn() == true) {
+			cb1.move();
+		}
+		
+		if (list[i].getX() > 500 && i < 19) {
+			list[i].move();
+			cb2.move();
+			cb3.move();
+			cb4.move();
+		}
 	}
 
 	@Override
@@ -99,6 +130,8 @@ public class ParcelDistributionCenter extends JPanel {
 		s.paint(g2d);
 		g.setColor(Color.BLACK);
 		g.drawPolygon(new int[] {300, 400, 400, 500, 500, 400, 400, 300}, new int[] {280, 280, 80, 80, 580, 580, 380, 380}, 8);
+		
+		sw.paint(g2d);
 	}
 
 	public static void main(String[] args) throws InterruptedException {
