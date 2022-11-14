@@ -16,9 +16,9 @@ public class Scanner {
 		this.scan = false;
 		this.colour = 3;
 	    try {
-            plane = ImageIO.read(new File("Images/plane.png"));
-			truck = ImageIO.read(new File("Images/truck.png"));
-			unknown = ImageIO.read(new File("Images/unknown.png"));
+            plane = ImageIO.read(new File("U:/Documents/ParcelDistributionCenter/src/plane.png"));
+			truck = ImageIO.read(new File("U:/Documents/ParcelDistributionCenter/src/truck.png"));
+			unknown = ImageIO.read(new File("U:/Documents/ParcelDistributionCenter/src/unknown.png"));
         } catch (IOException e)
         {
             System.out.println("No Image");
