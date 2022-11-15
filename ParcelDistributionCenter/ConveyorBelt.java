@@ -1,21 +1,15 @@
 import java.awt.*;
 
 public class ConveyorBelt {
-    private boolean on;
     private int x,y,l,h, xx, a;
 
     public ConveyorBelt(int x, int y, int l) {
-        this.on = true;
         this.x = x;
         this.y = y;
         this.l = l;
         this.h = 12;
         this.xx = x;
         this.a = 1;
-    }
-
-    public boolean getOn() {
-        return on;
     }
 
     public int getX() {
@@ -49,10 +43,6 @@ public class ConveyorBelt {
     public void setA(int a) {
         this.a = a;
     }
-
-    public void setOn(boolean on) {
-        this.on = on;
-    }
     
     public void move() {
         if (getXX() == getX()+20) {
@@ -79,9 +69,8 @@ public class ConveyorBelt {
             g.setColor(Color.GRAY.darker().darker().darker().darker());
             g.fillOval(i+3, getY()+6, 5, 5);
             g.setColor(Color.GRAY.darker());
-            g.fillArc(i+3, getY()+6, 5, 5, -getA(), getA());
+            g.fillArc(i+3, getY()+6, 5, 5, getA(), 180);
             g.setColor(Color.BLACK);
-            //g.drawLine(i+5, getY()+8, i, getY()+8);
         }
 
         for (int i=getXX()-15; i < getXX()+getL(); i+=15) {
@@ -91,5 +80,6 @@ public class ConveyorBelt {
         g.setColor(Color.BLACK);
         g.drawRoundRect(getX(), getY()-50, getL(), getH()+40, 10, 10);
         g.drawRoundRect(getX(), getY()+2, getL(), getH(), 10, 10);
+        
     }
 }
