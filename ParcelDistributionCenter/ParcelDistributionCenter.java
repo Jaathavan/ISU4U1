@@ -54,15 +54,21 @@ public class ParcelDistributionCenter extends JPanel {
 
 	public void move() {
 		for (Parcel p : list) {
-			if(sw.getOn() == true || p.getX() > 500) {
+			if(sw.getOn() == true || p.getX() >= 400) {
 				p.move();
-				cb2.move();
-				cb3.move();
-				cb4.move();
 			}
 			if (p.getX() >= 400) {
-				if (p.getC() == 0) p.setY(100);
-				if (p.getC() == 2) p.setY(500);
+				if (p.getC() == 2 && p.getX() <= 1020+p.getL()+p.getWXY()) {
+					p.setY(500);
+					cb4.move();
+				}
+				if (p.getC() == 1 && p.getX() <= 1020+p.getL()+p.getWXY()) {
+					cb3.move();
+				}
+				if (p.getC() == 0 && p.getX() <= 1020+p.getL()+p.getWXY()) {
+					p.setY(100);
+					cb2.move();
+				}
 			}
 		}
 
@@ -92,11 +98,9 @@ public class ParcelDistributionCenter extends JPanel {
 
 	@Override
 	public void paint(Graphics g) {
-
 		super.paint(g);
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-
 		// bg colour of gray
 		g.setColor(Color.DARK_GRAY);
 		g.fillRect(0, 0, 1020, 640);
@@ -125,7 +129,7 @@ public class ParcelDistributionCenter extends JPanel {
 
 		//overlay to top
 		g.setColor(Color.GRAY.darker());
-		g.fillRect(250+10+30, 300-20+10, 10, 80);
+		g.fillRect(250+10+30, 300-20+10, 10, 85);
 		//scanner
 		s.paint(g2d);
 		g.setColor(Color.BLACK);
