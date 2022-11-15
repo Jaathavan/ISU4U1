@@ -78,6 +78,8 @@ public class Scanner {
 		g.drawOval(300+10, 300-20+10, 10, 10);
 
 		//scanner image
+		g.setColor(Color.GRAY.darker());
+		g.fillRoundRect(10, 290+20+100+50-10, 140, 140, 30, 30);
 		if (getColour() == 0) {
 			g.setColor(Color.BLUE);
 			setImg(plane);
@@ -93,10 +95,11 @@ public class Scanner {
 		if (getColour() == 3) {
 			g.setColor(Color.GRAY);
 		}
-
 		g.fillRoundRect(20, 290+20+100+50, 120, 120, 30, 30);
 		g.drawImage(img, 30, 300+20+100+50, null);
+		
 		g.setColor(Color.BLACK);
 		g.drawRoundRect(20, 290+20+100+50, 120, 120, 30, 30);
+		g.drawRoundRect(10, 290+20+100+50-10, 140, 140, 30, 30);
 	}
 }
