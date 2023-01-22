@@ -82,6 +82,56 @@ public class SortAnalysis {
 
             //selection sort
             
+            System.out.println("Array Size: "  + i);
+            System.out.println("Selection sort: ");
+            System.out.println();
+            //bubble sort
+            for (int k=0; k < 10; k++) {
+                sw.start();
+                Sorts.selectSort(random[k]);
+                sw.stop();
+                System.out.println("Random " + (k+1) + ": " + sw.getElapsedTime());
+                ranTime += sw.getElapsedTime();
+
+                sw.start();
+                Sorts.selectSort(nearlySorted[k]);
+                sw.stop();
+                System.out.println("NearlySorted " + (k+1) + ": " + sw.getElapsedTime());
+                nsTime += sw.getElapsedTime();
+
+                sw.start();
+                Sorts.selectSort(reversed[k]);
+                sw.stop();
+                System.out.println("Reversed " + (k+1) + ": " + sw.getElapsedTime());
+                revTime += sw.getElapsedTime();
+
+                sw.start();
+                Sorts.selectSort(fewUniqueValues[k]);
+                sw.stop();
+                System.out.println("FewUniqueValues " + (k+1) + ": " + sw.getElapsedTime());
+                fuvTime += sw.getElapsedTime();
+
+                System.out.println();
+            }
+
+            System.out.println("Average Selection Sort: ");
+            System.out.println("Average Time Random: " + ranTime/10);
+            System.out.println("Average Time NearlySorted: " + nsTime/10);
+            System.out.println("Average Time Reversed: " + revTime/10);
+            System.out.println("Average Time FewUniqueValues: " + fuvTime/10);
+            System.out.println();
+
+            //reset variables and arrays
+            ranTime = 0;
+            nsTime = 0;
+            revTime = 0;
+            fuvTime = 0;
+            for (int j=0; j < 10; j++) {
+                random[j] = ArrayGen.randomizedArray(i);
+                nearlySorted[j] = ArrayGen.nearlySortedArray(i);
+                reversed[j] = ArrayGen.reversedArray(i);
+                fewUniqueValues[j] = ArrayGen.nearlySortedArray(i);
+            }
 
             //insertion sort
 
