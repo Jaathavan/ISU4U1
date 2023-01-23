@@ -7,10 +7,10 @@ public class SortAnalysis {
         int[][] nearlySorted;
         int[][] reversed;
         int[][] fewUniqueValues;
-        long ranTime = 0;
-        long nsTime = 0;
-        long revTime = 0;
-        long fuvTime = 0;
+        double ranTime = 0;
+        double nsTime = 0;
+        double revTime = 0;
+        double fuvTime = 0;
         
         for (int i=10; i <= 100000; i*=10) {
             //initialize with size 10 and each array size
