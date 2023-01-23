@@ -12,7 +12,7 @@ public class SortAnalysis {
         long revTime = 0;
         long fuvTime = 0;
         
-        for (int i=10; i < 100000; i*=10) {
+        for (int i=10; i <= 100000; i*=10) {
             //initialize with size 10 and each array size
             random = new int[10][i]; 
             nearlySorted = new int[10][i];
@@ -37,9 +37,17 @@ public class SortAnalysis {
                 sw.start();
                 Sorts.bubbleSort(random[k]);
                 sw.stop();
+
+                //for first output rerun as it's always an outlier
+                if (k == 0) {
+                    random[k] = ArrayGen.randomizedArray(i);
+                    sw.start();
+                    Sorts.bubbleSort(random[k]);
+                    sw.stop();
+                }
                 System.out.println("Random " + (k+1) + ": " + sw.getElapsedTime());
                 ranTime += sw.getElapsedTime();
-
+                
                 sw.start();
                 Sorts.bubbleSort(nearlySorted[k]);
                 sw.stop();
